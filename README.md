@@ -1,13 +1,24 @@
-## Run the following bash command to automatically execute all the commands below :
-```./run_benchmarks.sh ```
+# Just-in-time Performance Analysis
 
-## Building the docker image:
+This program currently is able to create a docker instance capable of 
+executing benchmarks using Java Microbenchmarking Harness. 
 
-```docker build --platform linux/amd64 -t [YOUR_IMG_NAME] ```
+#### Software requirements : 
+- [Docker installation](https://docs.docker.com/engine/install/)
+- *Only if you are on a Windows device* : [Bash](https://gitforwindows.org/)
 
-If you do not include the ```platform linux/amd64``` you may have issues if your architecture differs from the packages.
+#### Changing the script paths :
+The following paths are included by default, but should be change to reflect your own : 
 
 
-## Running a container from the image:
-```docker run -it --rm [YOUR_IMG_NAME]```
+```docker cp $container_id:/app/java_slices_directory.txt /YOUR/PATH/java_slices_directory.txt```
+
+```docker cp $container_id:/app/benchmark/jmh-result.json /YOUR/PATH/jmh-result.json```
+
+
+
+### To run the program :
+1. Give permissions to execute the bash script : ```chmod +x run_benchmarks.sh```
+
+2. Run the script : ```./run_benchmarks.sh ```
 
